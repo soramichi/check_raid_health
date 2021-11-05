@@ -54,19 +54,19 @@ def notify_good(n1: int, n2: int):
 
 
 def main():
-    active_devices_should_be: int = 2
-    active_devices_actual: int = 0
+    working_devices_should_be: int = 2
+    working_devices_actual: int = 0
     
     lines: List[str] = exec_mdadm_detail()
     for l in lines:
         s: str = remove_head_spaces(l)
-        if s.startswith("Active Devices"):
-            active_devices_actual = int(s.split(":")[1])
+        if s.startswith("Working Devices"):
+            working_devices_actual = int(s.split(":")[1])
 
-    if active_devices_should_be != active_devices_actual:
-        notify_bad(active_devices_should_be, active_devices_actual)
+    if working_devices_should_be != working_devices_actual:
+        notify_bad(working_devices_should_be, working_devices_actual)
     else:
-        notify_good(active_devices_should_be, active_devices_actual)
+        notify_good(working_devices_should_be, working_devices_actual)
 
 
 if __name__ == "__main__":
