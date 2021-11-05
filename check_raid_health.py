@@ -51,7 +51,6 @@ def notify_bad(n1: int, n2: int):
 def notify_good(n1: int, n2: int):
     title: str = ("RAID1 array is properly working (%d/%d)" % (n1, n2))
     notify(title)
-    pass
 
 
 def main():
